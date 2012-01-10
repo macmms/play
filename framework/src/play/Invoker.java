@@ -384,7 +384,8 @@ public class Invoker {
                         executor.submit(invocation);
                     }
                 });
-            } else {
+            } 
+            
                 synchronized (WaitForTasksCompletion.class) {
                     if (instance == null) {
                         instance = new WaitForTasksCompletion();
@@ -393,7 +394,7 @@ public class Invoker {
                     }
                     instance.queue.put(task, invocation);
                 }
-            }
+            
         }
 
         @Override
